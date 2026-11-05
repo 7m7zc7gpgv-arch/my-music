@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101014">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="MY MUSIC">
+  <meta name="description" content="La tua musica, sempre con te.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="style.css">
+  <title>MY MUSIC</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">♫</span><span>MY MUSIC</span></div>
+      <button class="icon-button" id="importTop" aria-label="Importa musica">＋</button>
+    </header>
+
+    <main>
+      <section class="view active" id="homeView">
+        <p class="eyebrow">LA TUA COLONNA SONORA</p>
+        <h1>La musica<br><span>è tua.</span></h1>
+        <div class="hero-card">
+          <div class="hero-glow"></div>
+          <div class="hero-copy">
+            <span class="pill">LA TUA LIBRERIA</span>
+            <h2>Ascolta<br>senza limiti.</h2>
+            <p>Importa i tuoi brani e portali sempre con te.</p>
+            <button class="primary-button" id="importHero">＋ Aggiungi musica</button>
+          </div>
+          <div class="hero-note">♫</div>
+        </div>
+        <div class="section-heading"><div><p class="eyebrow">LA TUA RACCOLTA</p><h2>Ascoltati di recente</h2></div></div>
+        <div id="recentList" class="track-list empty-state">
+          <div class="empty-icon">♫</div><p>La tua musica apparirà qui.</p><small>Importa un file audio per iniziare.</small>
+        </div>
+      </section>
+
+      <section class="view" id="searchView">
+        <p class="eyebrow">ESPLORA</p><h1>Cerca <span>musica.</span></h1>
+        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Brani, artisti o album"></label>
+        <div class="section-heading"><div><p class="eyebrow">LA TUA MUSICA</p><h2>Risultati</h2></div></div>
+        <div id="searchList" class="track-list empty-state"><p>Importa i tuoi brani per cercarli qui.</p></div>
+      </section>
+
+      <section class="view" id="libraryView">
+        <p class="eyebrow">TUTTO QUELLO CHE AMI</p><h1>La tua <span>libreria.</span></h1>
+        <div class="library-stats"><div><strong id="trackCount">0</strong><small>BRANI</small></div><div><strong id="favCount">0</strong><small>PREFERITI</small></div></div>
+        <div class="section-heading"><div><p class="eyebrow">COLLEZIONE</p><h2>Tutti i brani</h2></div><button class="text-button" id="importLibrary">＋ Importa</button></div>
+        <div id="libraryList" class="track-list empty-state"><p>La tua libreria è ancora vuota.</p></div>
+      </section>
+
+      <section class="view" id="favoritesView">
+        <p class="eyebrow">I TUOI PREFERITI</p><h1>Il meglio di <span>te.</span></h1>
+        <div id="favoritesList" class="track-list empty-state"><p>Non hai ancora aggiunto preferiti.</p></div>
+      </section>
+    </main>
+
+    <input id="fileInput" type="file" accept="audio/*,.mp3,.flac,.m4a,.aac,.wav,.ogg" multiple hidden>
+
+    <div class="player" id="player">
+      <div class="player-info"><div class="mini-art" id="miniArt">♫</div><div class="player-meta"><strong id="nowTitle">Nessun brano in riproduzione</strong><small id="nowArtist">Aggiungi la tua musica</small></div><button class="heart-button" id="playerFav" aria-label="Aggiungi ai preferiti">♡</button><button class="play-button" id="playButton" aria-label="Riproduci">▶</button></div>
+      <div class="progress-row"><span id="currentTime">0:00</span><input id="progress" type="range" min="0" max="100" value="0"><span id="duration">0:00</span></div>
+    </div>
+
+    <nav class="tabbar">
+      <button class="tab active" data-view="homeView"><span>⌂</span><small>Home</small></button>
+      <button class="tab" data-view="searchView"><span>⌕</span><small>Cerca</small></button>
+      <button class="tab" data-view="libraryView"><span>▤</span><small>Libreria</small></button>
+      <button class="tab" data-view="favoritesView"><span>♡</span><small>Preferiti</small></button>
+    </nav>
+  </div>
+  <audio id="audio" preload="metadata"></audio>
+  <script src="app.js"></script>
+</body>
+</html>
