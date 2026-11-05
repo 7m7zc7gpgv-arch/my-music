@@ -19,54 +19,48 @@
       <div class="brand"><span class="brand-mark">♫</span><span>MY MUSIC</span></div>
       <button class="icon-button" id="importTop" aria-label="Importa musica">＋</button>
     </header>
-
     <main>
       <section class="view active" id="homeView">
-        <p class="eyebrow">LA TUA COLONNA SONORA</p>
-        <h1>La musica<br><span>è tua.</span></h1>
+        <div class="welcome-row"><div><p class="eyebrow">LA TUA MUSICA, IL TUO MONDO</p><h1>Ritrova il tuo <span>sound.</span></h1></div><div class="profile-orb">♫</div></div>
         <div class="hero-card">
-          <div class="hero-glow"></div>
-          <div class="hero-copy">
-            <span class="pill">LA TUA LIBRERIA</span>
-            <h2>Ascolta<br>senza limiti.</h2>
-            <p>Importa i tuoi brani e portali sempre con te.</p>
+          <div class="hero-glow"></div><div class="hero-copy">
+            <span class="pill">BENVENUTO IN MY MUSIC</span>
+            <h2>Ogni momento<br>ha una colonna sonora.</h2>
+            <p>La tua raccolta, sempre pronta da ascoltare.</p>
             <button class="primary-button" id="importHero">＋ Aggiungi musica</button>
-          </div>
-          <div class="hero-note">♫</div>
+          </div><div class="hero-note">♫</div>
         </div>
-        <div class="section-heading"><div><p class="eyebrow">LA TUA RACCOLTA</p><h2>Ascoltati di recente</h2></div></div>
-        <div id="recentList" class="track-list empty-state">
-          <div class="empty-icon">♫</div><p>La tua musica apparirà qui.</p><small>Importa un file audio per iniziare.</small>
+        <div class="quick-actions">
+          <button class="quick-action" id="goLibrary"><span>▤</span><b>La tua libreria</b><small>Tutti i tuoi brani</small></button>
+          <button class="quick-action" id="goFavorites"><span>♥</span><b>I tuoi preferiti</b><small>I brani del cuore</small></button>
         </div>
+        <div class="section-heading"><div><p class="eyebrow">TORNA AD ASCOLTARE</p><h2>Ascoltati di recente</h2></div><span class="section-mark">♫</span></div>
+        <div id="recentList" class="track-list empty-state"><div class="empty-icon">♫</div><p>La tua musica apparirà qui.</p><small>Importa un file audio per iniziare.</small></div>
+        <div class="section-heading"><div><p class="eyebrow">LA TUA COLLEZIONE</p><h2>Brani da riscoprire</h2></div></div>
+        <div id="homeCollection" class="album-grid empty-state"><p>La tua raccolta crescerà qui.</p></div>
       </section>
-
       <section class="view" id="searchView">
-        <p class="eyebrow">ESPLORA</p><h1>Cerca <span>musica.</span></h1>
-        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Brani, artisti o album"></label>
+        <p class="eyebrow">TROVA IL TUO PROSSIMO ASCOLTO</p><h1>Cerca <span>musica.</span></h1>
+        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Brani o artisti"></label>
         <div class="section-heading"><div><p class="eyebrow">LA TUA MUSICA</p><h2>Risultati</h2></div></div>
         <div id="searchList" class="track-list empty-state"><p>Importa i tuoi brani per cercarli qui.</p></div>
       </section>
-
       <section class="view" id="libraryView">
         <p class="eyebrow">TUTTO QUELLO CHE AMI</p><h1>La tua <span>libreria.</span></h1>
         <div class="library-stats"><div><strong id="trackCount">0</strong><small>BRANI</small></div><div><strong id="favCount">0</strong><small>PREFERITI</small></div></div>
         <div class="section-heading"><div><p class="eyebrow">COLLEZIONE</p><h2>Tutti i brani</h2></div><button class="text-button" id="importLibrary">＋ Importa</button></div>
         <div id="libraryList" class="track-list empty-state"><p>La tua libreria è ancora vuota.</p></div>
       </section>
-
       <section class="view" id="favoritesView">
         <p class="eyebrow">I TUOI PREFERITI</p><h1>Il meglio di <span>te.</span></h1>
         <div id="favoritesList" class="track-list empty-state"><p>Non hai ancora aggiunto preferiti.</p></div>
       </section>
     </main>
-
     <input id="fileInput" type="file" accept="audio/*,.mp3,.flac,.m4a,.aac,.wav,.ogg" multiple hidden>
-
     <div class="player" id="player">
       <div class="player-info"><div class="mini-art" id="miniArt">♫</div><div class="player-meta"><strong id="nowTitle">Nessun brano in riproduzione</strong><small id="nowArtist">Aggiungi la tua musica</small></div><button class="heart-button" id="playerFav" aria-label="Aggiungi ai preferiti">♡</button><button class="play-button" id="playButton" aria-label="Riproduci">▶</button></div>
       <div class="progress-row"><span id="currentTime">0:00</span><input id="progress" type="range" min="0" max="100" value="0"><span id="duration">0:00</span></div>
     </div>
-
     <nav class="tabbar">
       <button class="tab active" data-view="homeView"><span>⌂</span><small>Home</small></button>
       <button class="tab" data-view="searchView"><span>⌕</span><small>Cerca</small></button>
