@@ -44,7 +44,7 @@ async function searchJamendo(){
   const data=await response.json();
   if(data.headers?.status!=="success")throw new Error(data.headers?.error_message||"Errore Jamendo");
   onlineResults=data.results||[];
-  out.innerHTML=onlineResults.length?onlineResults.map((t,i)=>'<div class="track online-track"><div class="art">'+(t.image?'<img src="'+escapeHTML(t.image)+'" alt="" loading="lazy">':'♫')+'</div><div class="track-copy"><strong>'+escapeHTML(t.name)+'</strong><small>'+escapeHTML(t.artist_name)+' · '+formatTime(Number(t.duration))+'</small><small class="license-note">Licenza: '+escapeHTML((t.license_ccurl||"").replace("https://creativecommons.org/licenses/","CC ").replace(/\/$/,"")||"vedi Jamendo")+'</small></div><div class="track-actions"><button data-online-play="'+i+'" aria-label="Ascolta">▶</button></div></div>').join(""):'<p>Nessun brano trovato. Prova un'altra ricerca.</p>';
+  out.innerHTML=onlineResults.length?onlineResults.map((t,i)=>'<div class="track online-track"><div class="art">'+(t.image?'<img src="'+escapeHTML(t.image)+'" alt="" loading="lazy">':'♫')+'</div><div class="track-copy"><strong>'+escapeHTML(t.name)+'</strong><small>'+escapeHTML(t.artist_name)+' · '+formatTime(Number(t.duration))+'</small><small class="license-note">Licenza: '+escapeHTML((t.license_ccurl||"").replace("https://creativecommons.org/licenses/","CC ").replace(/\/$/,"")||"vedi Jamendo")+'</small></div><div class="track-actions"><button data-online-play="'+i+'" aria-label="Ascolta">▶</button></div></div>').join(""):'<p>Nessun brano trovato. Prova con un altro termine.</p>';
  }catch(e){out.innerHTML='<p>Non riesco a caricare Jamendo. Controlla la connessione e riprova.</p>';console.error(e)}
 }
 async function playOnlineTrack(i){
