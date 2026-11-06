@@ -50,7 +50,7 @@ async function searchJamendo(){
 async function playOnlineTrack(i){
  const t=onlineResults[i];if(!t||!t.audio)return;
  current=-1;
- if(audio.src)URL.revokeObjectURL(audio.src.startsWith("blob:")?audio.src:"");
+ if(audio.src.startsWith("blob:"))URL.revokeObjectURL(audio.src);
  audio.src=t.audio;
  $("nowTitle").textContent=t.name;
  $("nowArtist").textContent=t.artist_name+" · Jamendo";
